@@ -65,7 +65,7 @@ export const do_op = <T, N, M>(tree: Tree<N, M>, { parent: newParent, time, chil
     meta
   }
 
-  if (!ancestor(tree, child, newParent) || child !== newParent) {
+  if (!ancestor(tree, child, newParent) && child !== newParent) {
     tree.set(String(child), [newParent, meta, child])
   }
 
