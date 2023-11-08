@@ -54,6 +54,8 @@ export const path_to_root = <N, M>(tree: Tree<N, M>, child: N, path: N[] = []): 
 export const ancestor = <N, M>(tree: Tree<N, M>, anc: N, child: N): boolean => path_to_root<N, M>(tree, child).includes(anc)
 
 export const do_op = <T, N, M>(tree: Tree<N, M>, { parent: newParent, time, child, meta }: Move<T, N, M>): [Tree<N, M>, LogMove<T, N, M>] => {
+  tree = new Map(tree.entries())
+
   const oldParent = get_parent(tree, child)
   const log_move: LogMove<T, N, M> = {
     time,
@@ -71,6 +73,8 @@ export const do_op = <T, N, M>(tree: Tree<N, M>, { parent: newParent, time, chil
 }
 
 export const undo_op = <T, N, M>(tree: Tree<N, M>, { oldParent, child }: LogMove<T, N, M>): Tree<N, M> => {
+  tree = new Map(tree.entries())
+
   if (oldParent !== null) {
     tree.set(String(child), [oldParent[0], oldParent[1], child])
   } else {
