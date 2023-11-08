@@ -40,7 +40,7 @@ export const get_parent = <N, M>(tree: Tree<N, M>, child: N): [N, M] | null => {
   return [tuple[0], tuple[1]]
 }
 
-const path_to_root = <N, M>(tree: Tree<N, M>, child: N, path: N[] = []): N[] => {
+export const path_to_root = <N, M>(tree: Tree<N, M>, child: N, path: N[] = []): N[] => {
   const [parent] = get_parent(tree, child) ?? [null]
 
   if (parent === null) {
