@@ -110,10 +110,10 @@ export const apply_op = <T, N, M>(operation: Move<T, N, M>, state: State<T, N, M
 }
 
 export const apply_ops = <T, N, M>(operations: Array<Move<T, N, M>>): State<T, N, M> => {
-  const state: State<T, N, M> = { log: [], tree: new Map() }
+  let state: State<T, N, M> = { log: [], tree: new Map() }
 
   for (const operation of operations) {
-    apply_op(operation, state)
+    state = apply_op(operation, state)
   }
 
   return state
