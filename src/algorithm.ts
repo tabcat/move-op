@@ -17,7 +17,7 @@ export interface State<T, N, M> {
 
 export interface Move<T, N, M> {
   time: T
-  parent: N
+  parent: N | null
   meta: M
   child: N
 }
@@ -25,7 +25,7 @@ export interface Move<T, N, M> {
 export interface LogMove<T, N, M> {
   time: T
   oldParent: [N, M] | null
-  newParent: N
+  newParent: N | null
   meta: M
   child: N
 }
@@ -65,7 +65,7 @@ export const do_op = <T, N, M>(tree: Tree<N, M>, { parent: newParent, time, chil
     meta
   }
 
-  if (!ancestor(tree, child, newParent) && child !== newParent && tree.has(String(newParent))) {
+  if (!ancestor(tree, child, newParent) && child !== newParent && (newParent === null || tree.has(String(newParent)))) {
     tree.set(String(child), [newParent, meta, child])
   }
 
