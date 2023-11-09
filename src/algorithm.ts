@@ -129,4 +129,12 @@ export const unique_parent = <N extends number, M extends Uint8Array>(tree: Tree
   return true
 }
 
-export const acyclic = <N, M>(tree: Tree<N, M>, child: N): boolean => ancestor<N, M>(tree, child, child)
+export const acyclic = <N, M>(tree: Tree<N, M>): boolean => {
+  for (const [,, child] of tree.values()) {
+    if (ancestor<N, M>(tree, child, child)) {
+      return false
+    }
+  }
+
+  return true
+}
