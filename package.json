@@ -2,6 +2,7 @@
   "name": "@tabcat/move-op",
   "version": "1.0.0",
   "description": "implements highly-available move operation for replicated trees",
+  "type": "module",
   "files": [
     "dist/src"
   ],
