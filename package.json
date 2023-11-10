@@ -2,7 +2,15 @@
   "name": "@tabcat/move-op",
   "version": "1.0.0",
   "description": "implements highly-available move operation for replicated trees",
-  "main": "dist/src/algorithm.js",
+  "files": [
+    "dist/src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/src/algorithm.d.ts",
+      "import": "./dist/src/algorithm.js"
+    }
+  },
   "scripts": {
     "build": "tsc",
     "test": "npm run build && mocha dist/test/*.spec.js"
