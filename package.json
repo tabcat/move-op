@@ -14,7 +14,9 @@
   },
   "scripts": {
     "build": "tsc",
-    "test": "npm run build && mocha dist/test/*.spec.js"
+    "test": "npm run build && mocha dist/test/*.spec.js",
+    "server": "npm run build && node dist/demo/server.js",
+    "client": "npm run build && node dist/demo/client.js"
   },
   "keywords": [
     "CRDT",
@@ -33,6 +35,12 @@
     "typescript": "^5.2.2"
   },
   "mocha": {
-    "require": ["ts-node/register", "source-map-support/register"]
+    "require": [
+      "ts-node/register",
+      "source-map-support/register"
+    ]
+  },
+  "dependencies": {
+    "open": "^9.1.0"
   }
 }
