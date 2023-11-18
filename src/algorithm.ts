@@ -24,16 +24,16 @@ export interface Move<T, N, M> {
 
 export interface LogMove<T, N, M> {
   time: T
-  oldParent: [N, M] | null
+  oldParent: [N | null, M] | null
   newParent: N | null
   meta: M
   child: N
 }
 
-export const get_parent = <N, M>(tree: Tree<N, M>, child: N): [N, M] | null => {
+export const get_parent = <N, M>(tree: Tree<N, M>, child: N): [N | null, M] | null => {
   const tuple = tree.get(String(child))
 
-  if (tuple == null || tuple[0] == null) {
+  if (tuple == null) {
     return null
   }
 
