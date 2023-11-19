@@ -41,6 +41,8 @@
     ]
   },
   "dependencies": {
+    "@canvas-js/okra": "^0.2.0",
+    "@canvas-js/okra-memory": "^0.2.1",
     "open": "^9.1.0"
   }
 }
